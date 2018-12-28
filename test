@@ -37,3 +37,10 @@ SELECT `id`,`name`, `nickname` FROM students2 WHERE `sex`=`男` ORDER by `id` DE
 
 SELECT `id`,`name`,`nickname` FROM 
 students2 WHERE `sex`="男" ORDER BY `id` DESC;
+
+UPDATE `students2` SET `sex`="女"  WHERE  `sex`="男"  # 把男的變女的
+UPDATE `students2` SET `sex`="女" , `nickname`='沒有名稱'; #全部變成女  nickname`='沒有名稱
+UPDATE `students2` SET `sex`='男' WHERE `id`>6
+
+DELETE FROM `students2` WHERE `sex`= '男'
+
