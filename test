@@ -44,3 +44,18 @@ UPDATE `students2` SET `sex`='男' WHERE `id`>6
 
 DELETE FROM `students2` WHERE `sex`= '男'
 
+
+
+CREATE TABLE `NEWS`(
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `title` VARCHAR(200) NOT NULL,
+    `content` VARCHAR(2000) NOT NULL,
+    `type` VARCHAR(10) NOT NULL,
+    `image` VARCHAR(200)  NULL,
+    `author` VARCHAR(20)  NULL,
+    `view_count` INT DEFAULT 0,
+    `created_at` DATETIME NULL,
+    `is_valid` SMALLINT DEFAULT 1,
+    PRIMARY KEY(`id`)
+) DEFAULT CHARSET="UTF8" 
+
