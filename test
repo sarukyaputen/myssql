@@ -1,1 +1,11 @@
 CREATE TABLE `WEB`(`ID` INT NOT NULL AUTO_INCREMENT,`name` VARCHAR(200) NOT NULL);
+
+#-------------------------------------------------------------------------------------
+
+CREATE TABLE `students`(
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `name` VARCHAR(20) NOT NULL,
+    `nickname` VARCHAR(20) NOT NULL,
+    `sex` CHAR(1) NULL,
+    `in time` DATETIME NULL);
+    
