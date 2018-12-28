@@ -9,4 +9,31 @@ CREATE TABLE `students2`(
     `sex` CHAR(1) NULL,
     `in time` DATETIME NULL
 )DEFAULT CHARSET 'UTF8';
+
+INSERT INTO `students2` VALUE('1','阿貓','大神','男',now())
+
+INSERT INTO `students2`(`name`, `nickname`) VALUE('阿狗','小兵')
+
+
+INSERT INTO `students2`(`name`, `nickname`) VALUES
+('阿狗5','小兵'),
+('阿狗6','小兵'),
+('阿狗7','小兵'),
+('阿狗8','小兵');
+
+INSERT INTO `students2`(`name`, `nickname`,`sex`) VALUES
+('阿狗5','小兵',男),
+('阿狗6','小兵',男),
+('阿狗7','小兵',男),
+('阿狗8','小兵',男);
+
+
+SELECT `name`, `nickname` FROM students2;
     
+SELECT `id`,`name`, `nickname` FROM students2 ;
+
+
+SELECT `id`,`name`, `nickname` FROM students2 WHERE `sex`=`男` ORDER by `id` DESC;
+
+SELECT `id`,`name`,`nickname` FROM 
+students2 WHERE `sex`="男" ORDER BY `id` DESC;
