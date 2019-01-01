@@ -1,0 +1,11 @@
+class News(db.Model):
+    __tablename__='news'
+    id=db.Column(db.Interger,primary_key=True)
+    title=db.Column(db.String(200),nullable=False)
+    content=db.Column(db.String(2000),nullable=False)
+    types=db.Column(db.String(10),nullable=False)
+    image=db.Column(db.String(300),)
+    author=db.Column(db.String(20),)
+    view_count=db.Column(db.Interger)
+    created_at=db.Column(db.DateTime)
+    is_valid=db.Column(db.Boolean)
