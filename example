@@ -1,0 +1,29 @@
+import sqlite3
+
+conn=sqlite3.connect("cursor01.db")
+cursor=conn.cursor()
+
+sqlstr='CREATE TABLE IF NOT EXISTS table01 \
+        ("num" INTEGER PRIMARY KEY NOT NULL, "tel" TEXT)'
+
+cursor.execute(sqlstr)
+print(sqlstr)
+conn.commit()
+conn.close()
+
+#-----------------------------------------    \
+
+
+conn = sqlite3.connect('Park01.db') # 建立資料庫連線
+cursor = conn.cursor() # 建立 cursor 物件
+sqlstr='CREATE TABLE IF NOT EXISTS Park001 \
+("num" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL ,"name" TEXT,"ParkName" TEXT,"Image" TEXT,"Introduction" TEXT,"OpenTime" TEXT,"YearBuilt" TEXT)'
+cursor.execute(sqlstr)
+
+
+
+sqlstr="insert into Park001 (name,ParkName,Image,Introduction,OpenTime,YearBuilt) values ('"+Name+"','"+ParkName+"','"+Image+"','"+Introduction+"','"+TEXTOpenTime+"','"+YearBuilt+"')"
+
+    cursor.execute(sqlstr)
+    conn.commit() # 主動更新    
+conn.close()
