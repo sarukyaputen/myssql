@@ -14,16 +14,29 @@ conn.close()
 #-----------------------------------------    \
 
 
+import requests,sqlite3
+html = requests.get("http://data.taipei/opendata/datalist/datasetMeta/download?id=ea732fb5-4bec-4be7-93f2-8ab91e74a6c6&rid=bf073841-c734-49bf-a97f-3757a6013812")
+html.encoding="utf-8"
+print(html)
 conn = sqlite3.connect('Park01.db') # 建立資料庫連線
 cursor = conn.cursor() # 建立 cursor 物件
 sqlstr='CREATE TABLE IF NOT EXISTS Park001 \
 ("num" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL ,"name" TEXT,"ParkName" TEXT,"Image" TEXT,"Introduction" TEXT,"OpenTime" TEXT,"YearBuilt" TEXT)'
 cursor.execute(sqlstr)
-
-
-
-sqlstr="insert into Park001 (name,ParkName,Image,Introduction,OpenTime,YearBuilt) values ('"+Name+"','"+ParkName+"','"+Image+"','"+Introduction+"','"+TEXTOpenTime+"','"+YearBuilt+"')"
-
+# print(html.text)
+jsondata = eval(html.text)
+print(jsondata)
+for park in jsondata:
+    ParkName=park["ParkName"]
+    Name=park["Name"]
+    Introduction=park["Introduction"]
+    TEXTOpenTime=park["OpenTime"]
+    Image=park["Image"]
+    YearBuilt=park["YearBuilt"]
+    
+                
+    print("公園景點:{}{}\n簡介：{}\n開放時間={}\n".format(ParkName,Name,Introduction,TEXTOpenTime))
+    sqlstr="insert into Park001 (name,ParkName,Image,Introduction,OpenTime,YearBuilt) values ('"+Name+"','"+ParkName+"','"+Image+"','"+Introduction+"','"+TEXTOpenTime+"','"+YearBuilt+"')"
     cursor.execute(sqlstr)
     conn.commit() # 主動更新    
 conn.close()
